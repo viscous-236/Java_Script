@@ -22,9 +22,21 @@
 // chai()
 
 //____________________ArrowFunction___________________
+// () => {}
+
 const chai = () =>{
     let username = "vaibhav";
-    console.log(this); //undefined
+    console.log(this.username); //undefined
+    console.log(this);
 }
 
+
 chai();
+
+// const addTwo = (num1,num2) => {
+//     return num1+ num2;
+// }
+//another way
+const addTwo = (num1,num2) => num1+num2;
+// const addTwo = (num1,num2) => ({username: "Vaibhav"}) //{username: "Vaibhav"}
+console.log(addTwo(1,2));
