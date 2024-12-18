@@ -22,3 +22,9 @@ button{
     font-size: 20px;
     cursor: pointer;
 }
+
+#results{
+    font-size: 50px;
+    color: rgb(33, 152, 89);
+    font-weight: bolder;
+}
