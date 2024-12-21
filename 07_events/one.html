@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>html Events</title>
+</head>
+<body style="background-color: #414141; color:aliceblue">
+    <h2>Amazing images</h2>
+    <div>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+    </div>
+</body>
+<script>
+    // 1st approch for onclick
+    // document.getElementById('owl').onclick = function (){
+    //    alert("Owl Clicked")
+    //}
+    // attachEvent()
+    // jQuery - on
+    // type,timestamp,defalultPreveted
+    // target, toElememt,srcElement,currentTarget
+    // clientX, clientY, screenX,screenY
+    // altKey, ctrlKey, shiftKey, keyCode
+
+    document.getElementById('images').addEventListener('click',function(e){
+        // alert("Owl Clicked")
+        console.log('Clicked inside the ul');
+    },false)
+    // Clicked inside the url
+    
+    document.getElementById('owl').addEventListener('click',function(e){
+        // alert("Owl Clicked")
+        console.log('Owl clicked');
+        e.stopPropagation();// will stop the event to go outsidethe element 
+    },false)// Owl clicked
+    // Clicked inside the url
+
+    /*
+    If false first the inside element is printd then outside element is printed.. inside to outside
+    
+    If true first the outside element is printed then inside element is printed.. outside to inside
+
+    Domination is of outer elelment
+    */
+
+    document.getElementById('google').addEventListener('click',function (e){
+        e.preventDefault();// will stop the defalut task of opening the url
+        console.log("Google clicekd")
+    },false)
+
+    document.querySelector('#images').addEventListener('click',function(e){
+        // console.log(e.target)
+        // let removeIt = e.target.parentNode;
+        // removeIt.remove();
+        // removeIt.parentNode.removeChild(removeIt);
+        // In the above cases if we click the any list item its parent ul willbe selected and it will remove the whole ul
+        // to prevent this we use e.target.tagName condition
+        if(e.target.tagName === 'IMG'){
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.parentNode.removeChild(removeIt);
+        }
+    })
+</script>
+</html>

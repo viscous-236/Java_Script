@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Chai aur javascript</h1>
+    <button id="stop">Stop</button>
+    <button id="start">Start</button>
+</body>
+<script>
+    // setInterval(function(){
+    //    console.log("Hitesh")
+    // },1000)
+    // const sayDate = function(){
+    //     console.log('Vaibhav')
+    // }
+    // const intervalId = setInterval(sayDate,1000)
+    // clearInterval(intervalId);
+
+    const sayName = function(){
+        console.log("Vaibhav");
+    }
+    const str = document.getElementById('start');
+    str.addEventListener('click',function(e){
+        const intervalId = setInterval(sayName);
+        const stp = document.getElementById('stop');
+        stp.addEventListener('click',function(e){
+        clearInterval(intervalId);
+        })
+    })
+</script>
+</html>

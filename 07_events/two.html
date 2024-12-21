@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello World!</h1>
+    <button id="stop">Stop</button>
+</body>
+<script>
+    //setTimeout(function(){
+    //    console.log("Vaibhav Goyal")
+    //},2000);// Will call setTimeout api which will execute this code in 2seconds
+
+    // Can also done by this method
+    const sayVaibhav = function(){
+        console.log('Vaibhav');
+    }
+    // document.querySelector('h1').innerHTML = "Hi World"
+    const changeText = function(){
+        document.querySelector('h1').innerHTML = 'Hi World!'
+    }
+    const changeMe = setTimeout(changeText,2000);
+    setTimeout(sayVaibhav,2000);
+
+    document.querySelector('#stop').addEventListener('click',function (){
+        clearTimeout(changeMe);
+        console.log('stopped');
+    })
+</script>
+</html>
